@@ -7,6 +7,8 @@ import Select from "./Select";
 
 class Form extends React.Component {
   state = {
+    showForm: false,
+    // ore ....
     raw: "",
     // settings
     refinery: 50,
@@ -27,7 +29,6 @@ class Form extends React.Component {
   syncPropsToState(props = this.props) {
     const { data } = props;
     this.setState({
-      showForm: false,
       // form data
       raw: data.raw,
       // settings
