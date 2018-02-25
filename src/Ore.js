@@ -14,16 +14,24 @@ class Ore extends Component {
     data: undefined,
   };
 
-  componentWillMount() {
-    const { hash } = this.props.match.params;
-    console.log('hash', hash);
+  loadData = (hash) => {
     loadData(hash).then(data => {
-      console.log('@', hash, data);
+      console.log('upa1', data);
       this.setState({
         hash,
         data,
       });
     });
+  }
+
+  componentWillMount() {
+    const { hash } = this.props.match.params;
+    this.loadData(hash);
+  }
+
+  componentWillReceiveProps(newProps) {
+    const { hash } = newProps.match.params;
+    this.loadData(hash);
   }
 
   render () {

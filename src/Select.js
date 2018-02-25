@@ -1,33 +1,20 @@
 import React from 'react';
-import MenuItem from 'material-ui/Menu/MenuItem';
-import TextField from 'material-ui/TextField';
 
 export default class Select extends React.Component {
 
   render () {
-    const { classes, name, value, options, helperText } = this.props;
+    const { name, value, options, width} = this.props;
     return (
-      <TextField
-      id={ `select-${name}` }
-      select
-      label={ `${name}:` }
-      className={ classes.textField }
-      value={ String(value) }
-      onChange={ this.props.onChange }
-      SelectProps={{
-        MenuProps: {
-          className: classes.menu,
-        },
-      }}
-      helperText={ helperText || '' }
-      margin="normal"
-    >
-      {options.map(option => (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label}
-        </MenuItem>
-      ))}
-    </TextField>
+      <label>
+        {name}:
+        <select className="input-small" name="refinery" style={{width:`${width || 65}px`}}>
+          {options.map(option => (
+            <option key={`${option.value}_${option.label}`} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </label>
     );
   }
 

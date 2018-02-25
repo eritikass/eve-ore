@@ -3,3 +3,74 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#dataform {
+  margin: 15px auto 20px;
+  width: 800px;
+  background-color: #eee;
+  padding: 10px 0 15px;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+  background-color: #e6EEEE;
+/*	border: 1px solid #FFF; */
+  padding: 4px 18px 4px 4px;
+}
+
+table.tablesorter thead tr .header {
+  background-image: url(//cdn.kassikas.net/jquery.tablesorter/themes/blue/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+}
+table.tablesorter tbody td {
+  color: #3D3D3D;
+  padding: 4px;
+  background-color: #FFF;
+  vertical-align: top;
+}
+table.tablesorter thead tr .headerSortUp {
+  background-image: url(//cdn.kassikas.net/jquery.tablesorter/themes/blue/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+  background-image: url(//cdn.kassikas.net/jquery.tablesorter/themes/blue/desc.gif);
+}
+
+table .number {
+  text-align: right;
+}
+
+table .center {
+  text-align: center;
+}
+
+table .void {
+  border: none;
+  background-color: #fff;
+}
+
+table tbody td {
+  border: 1px solid #ddd;
+}
+
+table th.header i {
+  font-weight: normal;
+}
+
+.title {
+  font-size: 180%;
+}
+
+#go_changelog {
+  cursor: pointer;
+}
+
+#backtotracker {
+  font-style: italic;
+  margin: 10px 20px 5px 0;
+  text-align: right;
+}
+
+.export_type {
+  margin-right: 5px;
+}
