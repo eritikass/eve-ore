@@ -105,6 +105,7 @@ class Form extends React.Component {
           <br />
           <b>Skills</b> (<a
             target="_blank"
+            rel="noopener noreferrer"
             href="//wiki.eveonline.com/en/wiki/Reprocessing#Skills"
           >
             wiki
@@ -131,7 +132,7 @@ class Form extends React.Component {
           <br/><br/>
 
           copy paste from eve assets or contract (ctrl+a > ctrl+c), compressed ore only! (<Link to="/ore/all"><i>example oretable</i></Link>)<br/>
-          <textarea value={state.raw} className="orelist" style={{width:'100%', width:'760px'}} rows="15" />
+          <textarea value={state.raw} className="orelist" style={{/* width:'100%', */ width:'760px'}} rows="15" />
 
 
         </center>
