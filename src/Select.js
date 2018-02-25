@@ -5,7 +5,13 @@ import TextField from 'material-ui/TextField';
 export default class Select extends React.Component {
 
   render () {
-    const { classes, name, value, options, helperText } = this.props;
+    const {
+      classes,
+      name,
+      value,
+      options,
+      helperText,
+    } = this.props;
     return (
       <TextField
       id={ `select-${name}` }
@@ -23,7 +29,7 @@ export default class Select extends React.Component {
       margin="normal"
     >
       {options.map(option => (
-        <MenuItem key={option.value} value={option.value}>
+        <MenuItem key={`${option.value}-${option.label}`} value={String(option.value)}>
           {option.label}
         </MenuItem>
       ))}

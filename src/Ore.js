@@ -3,6 +3,7 @@ import React, {
 } from "react";
 
 import Form from './Form';
+import TestTable from './TestTable';
 
 import loadData from './loadData';
 
@@ -32,8 +33,9 @@ class Ore extends Component {
     return (
       <div>
         { data && <Form data={ data.settings } /> }
+        { data && <TestTable data={ data.minerals } /> }
         ORE [ { hash } ]
-        <pre>{ JSON.stringify(data, null, 4) }</pre>
+        {/* <pre>{ JSON.stringify(data, null, 4) }</pre> */}
       </div>
     );
   }

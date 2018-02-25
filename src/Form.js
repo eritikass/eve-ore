@@ -8,11 +8,8 @@ import Grid from 'material-ui/Grid';
 import Select from './Select';
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
   container: {
-    display: 'flex',
+    // display: 'flex',
     flexWrap: 'wrap',
   },
   textField: {
@@ -23,17 +20,19 @@ const styles = theme => ({
   menu: {
     width: 200,
   },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
 });
 
 class Form extends React.Component {
   state = {
-    name: 'Cat in the Hat',
-    refinery: 'EUR',
+    raw: '',
+    // settings
+    refinery: 57,
+    tax: 0,
+    implant: 0,
+    // skills
+    reprocessing: 5,
+    reprocessing_efficiency: 5,
+    ore_processing: 5,
   };
 
   handleChange = name => event => {
@@ -70,64 +69,100 @@ class Form extends React.Component {
 
   render() {
     const { classes, data } = this.props;
+    console.log('refinery', this.state.refinery);
     return (
       <form className={classes.container} noValidate autoComplete="off">
 
-        <Select
-          name="refinery"
-          value={ this.state.refinery }
-          onChange={this.handleChange('refinery')}
-          classes={ classes }
-          options={ data.meta.refinerys.map(v => {
-            return {
-              value: v.efficiency,
-              label: v.name,
-            };
-          }) }
-        ></Select>
-        <Select
-          name="tax"
-          value={ this.state.tax }
-          onChange={this.handleChange('tax')}
-          classes={ classes }
-          options={ this.getNumberRangeForSelect(0, 100, true) }
-        ></Select>
-        <Select
-          name="implant"
-          value={ this.state.implant }
-          onChange={this.handleChange('implant')}
-          classes={ classes }
-          options={ data.meta.implants.map(v => {
-            return {
-              value: String(v),
-              label: v && `${v}%` || 'none',
-            };
-          }) }
-        ></Select>
+        <div>
 
-        <Select
-          name="Reprocessing"
-          value={ this.state.reprocessing }
-          onChange={this.handleChange('reprocessing')}
-          classes={ classes }
-          options={ this.getNumberRangeForSelect(1, 5, false) }
-        ></Select>
+          <Select
+            name="refinery"
+            value={ this.state.refinery }
+            onChange={this.handleChange('refinery')}
+            classes={ classes }
+            options={ data.meta.refinerys.map(v => {
+              return {
+                value: v.efficiency,
+                label: v.name,
+              };
+            }) }
+          ></Select>
+          <Select
+            name="tax"
+            value={ this.state.tax }
+            onChange={this.handleChange('tax')}
+            classes={ classes }
+            options={ this.getNumberRangeForSelect(0, 100, true) }
+          ></Select>
+          <Select
+            name="implant"
+            value={ this.state.implant }
+            onChange={this.handleChange('implant')}
+            classes={ classes }
+            options={ data.meta.implants.map(v => {
+              return {
+                value: String(v),
+                label: v && `${v}%` || 'none',
+              };
+            }) }
+          ></Select>
 
-        <Select
-          name="Reprocessing Efficiency"
-          value={ this.state.reprocessing_efficiency }
-          onChange={this.handleChange('reprocessing_efficiency')}
-          classes={ classes }
-          options={ this.getNumberRangeForSelect(1, 5, false) }
-        ></Select>
+        </div>
 
-        <Select
-          name="Ore processing"
-          value={ this.state.ore_processing }
-          onChange={this.handleChange('ore_processing')}
-          classes={ classes }
-          options={ this.getNumberRangeForSelect(1, 5, false) }
-        ></Select>
+        <div>
+
+          <Select
+            name="Reprocessing"
+            value={ this.state.reprocessing }
+            onChange={this.handleChange('reprocessing')}
+            classes={ classes }
+            options={ this.getNumberRangeForSelect(1, 5, false) }
+          ></Select>
+
+          <Select
+            name="Reprocessing Efficiency"
+            value={ this.state.reprocessing_efficiency }
+            onChange={this.handleChange('reprocessing_efficiency')}
+            classes={ classes }
+            options={ this.getNumberRangeForSelect(1, 5, false) }
+          ></Select>
+
+          <Select
+            name="Ore processing"
+            value={ this.state.ore_processing }
+            onChange={this.handleChange('ore_processing')}
+            classes={ classes }
+            options={ this.getNumberRangeForSelect(1, 5, false) }
+          ></Select>
+
+      </div>
+
+      <div>
+
+      <div>
+      copy paste from eve assets or contract (ctrl+a > ctrl+c), compressed ore only!
+      </div>
+      <textarea
+          id="raw-input"
+          value={ this.state.raw }
+          onChange={this.handleChange('raw')}
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+          style={{
+            width: '631px',
+            height: '136px',
+          }}
+          helperText=""
+          margin="normal"
+        >
+      </textarea>
+
+      </div>
+
+
 
       </form>
     );
